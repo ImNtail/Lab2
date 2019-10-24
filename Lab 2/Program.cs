@@ -1,9 +1,16 @@
-﻿using System;
+using System;
 
 namespace Lab2
 {
     class Program
     {
+        public static long Factorial(long factorial)
+        {
+            long temp = factorial, fct = 1;
+            for (long i = 1; i < temp; temp--)
+                fct *= temp;
+            return fct;
+        }
         static void Main(string[] args)
         {
             /*
@@ -122,22 +129,17 @@ namespace Lab2
             Console.Write("Enter the number of terms: ");
             int q = int.Parse(Console.ReadLine());
             double cosX = 1;
-            int factorial = 0;
             for (int i = 0, grade = 2; i < q; i++, grade += 2)
             {
-                for (int fact = grade; fact > 1; fact--)
-                {
-                    factorial = fact * (fact--);
-                    Console.WriteLine("Factorial = " + factorial);
-                }
+                int f = grade;
                 int n = i + 1;
                 if (n % 2 == 0)
-                    cosX += Math.Pow(angle, grade) / factorial;
+                    cosX += Math.Pow(angle, grade) / Factorial(f);
 
                 if (n % 2 != 0)
-                    cosX -= Math.Pow(angle, grade) / factorial;
+                    cosX -= Math.Pow(angle, grade) / Factorial(f);
             }
-            Console.WriteLine("Cos of angle is " + cosX);
+            Console.WriteLine("Cos of angle is {0: 0.###}", cosX);
             Console.ReadKey();
             */
 
